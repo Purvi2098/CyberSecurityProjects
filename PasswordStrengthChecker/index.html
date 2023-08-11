@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Password strength Checker</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Password Strength Check</h2>
+        <div class="inputbox">
+            <input type="Password" placeholder="password" id="myPassword">
+            <div class="show"></div>
+        </div>
+        <div class="strengthMeter"></div> 
+    </div>
+
+    <script>
+        function Strength(password){
+            let i=0;
+            if(password.length > 6){
+                i++;
+            }
+            if(password.length >= 10){
+                i++;
+            }
+            if(/[A-Z]/.test(password)){
+                i++;
+            }
+            if(/[0-9]/.test(password)){
+                i++;
+            }
+            if(/[A-Za-z0-8]/.test(password)){
+                i++;
+            }
+            return i;
+
+        }
+
+        let container= document.querySelector('.container');
+        document.addEventListener("keyup",function(e){
+        let password= document.querySelector('#myPassword').value;
+        let strength = Strength(password);
+            if (strength <= 2) {
+                container.classList.add('weak');
+                container.classList.remove('medium');
+                container.classList.remove('strong');
+            }else if (strength >= 2 && strength <=4) {
+                container.classList.remove('weak');
+                container.classList.add('medium');
+                container.classList.remove('strong');
+            }else{
+                container.classList.remove('weak');
+                container.classList.remove('medium');
+                container.classList.add('strong');
+            }
+
+
+        })
+
+
+        let passwd= document.querySelector('#myPassword');
+        let show= document.querySelector('.show');
+        show.onclick = function(){
+
+            if(passwd.type === 'password')
+            {
+                passwd.setAttribute('type', 'text');
+                show.classList.add('hide');
+            }else{
+                passwd.setAttribute('type', 'password');
+                show.classList.remove('hide');
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>
