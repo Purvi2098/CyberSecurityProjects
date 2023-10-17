@@ -1,5 +1,7 @@
+/* Importing the Poppins font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600700;800;900&display=swap')
 
+/* Resetting default styles and setting the font-family to Poppins */
 *{
 	margin: 0;
 	padding: 0;
@@ -7,6 +9,9 @@
 	font-family: 'Poppins', sans-serif;
 
 }
+
+/* Styling the body element */
+
 body
 {
 	display: flex;
@@ -15,6 +20,8 @@ body
 	min-height: 100vh;
 	background: #222;
 }
+
+/* Styling the container that holds the password input and strength meter */
 .container
 {
 	position: relative;
@@ -31,6 +38,7 @@ body
 	-webkit-box-reflect: below 1px linear-gradient(transparent,transparent,#0005);
 }
 
+/* Styling the heading inside the container */
 .container h2 {
 	color: #666; 
 	font-weight: 600; 
@@ -42,11 +50,14 @@ body
 	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
 }
 
+/* Styling the password input box */
 .container .inputbox
 {
 	position: relative;
 	width: 100%;
 }
+
+/* Styling the password input box input */
 .container .inputbox input
 {
 	position: relative;
@@ -58,6 +69,8 @@ body
 	color: #fff;
 	font-size: 1.1em;
 }
+
+/* Styling the password strength meter */
 .container .strengthMeter
 {
 	position: absolute;
@@ -68,6 +81,8 @@ body
 	background: #222;
 
 }
+
+
 .container .strengthMeter::before
 {
 	content: '';
@@ -130,7 +145,7 @@ body
 
 }
 
-
+/* Styling the "Show" button for revealing the password */
 .show
 {
 	position: absolute;
@@ -157,5 +172,5 @@ body
 }
 .show.hide::before
 {
-	content: 'Hide';
+	content: 'Hide'; /hidding the content
 }
